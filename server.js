@@ -9,6 +9,7 @@ const app = express();
 
 // tell project where to look for/how to use client-side content
 app.use(express.static(path.resolve('public'))); // allow use of anything within 'public' folder
+app.use(express.static(path.resolve('node_modules')));
 app.use(express.static(path.resolve('bower_components'))); // location of angular resources
 app.use(bodyParser.json()); // tell body-parser to return form data as JSON objects
 
