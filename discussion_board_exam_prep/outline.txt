@@ -1,0 +1,76 @@
+
+Partials
+    - login/registration
+        - login form
+        - registration form
+    - dashboard
+        - topics table
+            - scrollable
+            - sortable
+        - add topic form
+    - topic/:id
+        - display topic/description
+        - post answer form
+        - display answers
+        - post comments form
+        - display comments
+        - up-vote, down-vote for each response
+    - user/:id
+        - show user info
+        - list:
+            - topics count
+            - posts count
+            - comments count
+    - settings
+        - display tables for all models (for testing)
+
+Controllers (client)
+    - dashboard
+    - users
+    - topics
+    - posts
+    - comments
+
+Factories (client)
+    - users
+    - topics
+    - posts
+    - comments
+
+
+
+NOTE: Do I need an association model on the back-end? Would this be an easier way to update all necessary models?
+
+
+Mongoose Models
+    - users (foreign keys to topics, posts and comments)
+    - topics (foreign keys to users and posts)
+    - posts/answers (foreign keys to users, topics and comments)
+    - comments (foreign keys to users and posts)
+
+Controllers (server)
+    - users
+    - topics
+    - posts
+    - comments
+
+Routes (server)
+    - users
+        - get all
+        - get one (by id)
+        - create
+        - delete
+    - topics
+        - get all
+        - get one (by id)
+        - create
+        - delete
+    - posts
+        - get all (where)
+        - get one (by id)
+        - create
+        - delete
+    - comments
+        - get all (where)
+        - create
+        - delete

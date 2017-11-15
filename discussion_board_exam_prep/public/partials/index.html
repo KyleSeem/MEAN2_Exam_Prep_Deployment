@@ -1,0 +1,89 @@
+<!-- login/registration forms // must pass validation to enter site -->
+
+<header class="page-header">
+    <h1>Discussion Board <small> a full MEAN application</small></h1>
+    <!-- button active only during testing -->
+    <!-- <a class="btn btn-danger" href="#!/settings" style="float:right;">Settings</a> -->
+</header>
+
+
+<section>
+<!-- registration form article -->
+    <article class="col-md-5" >
+        <h3>Register</h3>
+        <form class="form-horizontal">
+            <div ng-if="alertType === 'reg'">
+                <div class="alert alert-danger">
+                    <div ng-repeat="alert in alerts">
+                        {{ alert }}
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-md-3">Username:</label>
+                <div class="col-md-8">
+                    <input class="form-control" type="text" ng-model="newUser.username">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-3">Email:</label>
+                <div class="col-md-8">
+                    <input class="form-control" type="email" ng-model="newUser.email">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-3">Password:</label>
+                <div class="col-md-8">
+                    <input class="form-control" type="text" ng-model="newUser.password">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-3">Confirm:</label>
+                <div class="col-md-8">
+                    <input class="form-control" type="text" ng-model="newUser.confirm">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-11">
+                    <input class="btn btn-primary" type="submit" value="Register" ng-click="register()">
+                </div>
+            </div>
+
+        </form>
+    </article>
+
+<!-- login form article -->
+    <article class="col-md-5 col-md-offset-1">
+        <h3>Login</h3>
+        <form class="form-horizontal">
+            <div ng-if="alertType === 'log'">
+                <div ng-repeat="alert in alerts">
+                    <div class="alert alert-danger">
+                            {{ alert }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-md-3">Email:</label>
+                <div class="col-md-8">
+                    <input class="form-control" type="email" ng-model="user.email">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-3">Password:</label>
+                <div class="col-md-8">
+                    <input class="form-control" type="text" ng-model="user.password">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-11">
+                    <input class="btn btn-primary" type="submit" value="Login" ng-click="login()">
+                </div>
+            </div>
+        </form>
+    </article>
+
+</section>

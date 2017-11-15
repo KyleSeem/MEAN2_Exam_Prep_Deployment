@@ -1,0 +1,27 @@
+<!-- user's page -->
+
+<header class="page-header">
+    <h1 class="col-md-10">Discussion Board</h1>
+    <nav ng-controller="DashController">
+        <a href="#!/dashboard">Dashboard</a> |
+        <a href="" ng-click="logout()">Logout</a>
+    </nav>
+</header>
+
+<main ng-init="show()">
+    <section>
+        <h3 style="padding-bottom:1em;">Username: {{ user.username }}</h3>
+        <div class="col-md-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title"><strong>Your activity</strong></h3>
+                </div>
+                <ul class="list-group">
+                    <li class="list-group-item">Topics: {{ tps }}</li>
+                    <li class="list-group-item">Messages: {{ msg }}</li>
+                    <li class="list-group-item">Comments: {{ cmt }}</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+</main>

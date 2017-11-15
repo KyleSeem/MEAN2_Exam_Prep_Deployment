@@ -1,0 +1,105 @@
+.container{
+    margin: auto;
+    font-size: 1.1em;
+}
+header{
+    overflow: hidden;
+}
+nav{
+    margin-top: 2em;
+}
+section{
+    margin: auto;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+article{
+    padding-bottom: 1.5em;
+}
+p{
+    font-size: 1.15em;
+    /*padding-bottom: 5px;*/
+}
+
+table{
+    margin-bottom: 30px;
+}
+    th{
+        text-align: center;
+        background-color: #eceaea;
+    }
+    td {
+        text-align: center;
+    }
+    .scrollArea table tbody tr td{
+        vertical-align: middle;
+
+    }
+
+form{
+    border-top: 1px solid #e3e3e3;
+    padding-top: 2em;
+}
+    textarea{
+        overflow: scroll;
+    }
+#topics form{
+    padding-top: 5px;
+    border-top: none;
+}
+input.btn.btn-primary{
+    float: right;
+}
+
+div#search{
+    float: right;
+    padding-bottom: 10px;
+}
+
+div.headerSpacer{
+    background-color: #eceaea;
+}
+
+#lastOne .scrollableContainer{
+    margin-bottom: 50px;
+}
+#pTopic p{
+    padding-left: 30px;
+}
+#pTopic :first-child{
+    font-style: italic;
+    font-weight: bold;
+}
+#tMessages{
+    height: 450px;
+    position: relative;
+    margin-top: -10px;
+
+}
+.tMessages{
+    font-size: .9em;
+    padding-top: 10px;
+    border-bottom: 1px solid #e3e3e3
+}
+.tMessages article{
+    background-color: #f5f5f5;
+    padding: 20px;
+    padding-bottom: 0px;
+}
+.tMessages article:last-child{
+    margin-bottom: 10px;
+}
+.mHeader{
+    font-size: 1.25em;
+    padding-bottom: .5em;
+    border-bottom: 1px solid #e2dfdf;
+    margin-bottom: 5px;
+    position: sticky;
+}
+.cIndent{
+    padding-left: 30px;
+}
+i.glyphicon{
+    margin-right: 25px;
+    margin-left: 5px;
+}

@@ -1,0 +1,82 @@
+<!-- topic partial // contains data for topic previously specified by ID via link // displays topic info // links to users from topic, messages and comments // form to add a response(message) // form per response to add a comment // upvote or downvote a message -->
+
+<header class="page-header">
+    <h1 class="col-md-10">Discussion Board</h1>
+    <nav ng-controller="DashController">
+        <a href="#!/dashboard">Dashboard</a> |
+        <a href="" ng-click="logout()">Logout</a>
+    </nav>
+</header>
+
+<main id="topics" style="overflow:hidden;" ng-init="show()">
+<!-- topic section -->
+    <section class="col-md-12" style="border-bottom:1px solid #d3d3d3;">
+        <article >
+            <div class="col-md-offset-1">
+                <p style="font-size:1.25em;"><a href="" ng-click="getUser(topic._user)">{{ topic.username }}</a> posted a topic in the {{ topic.category }} category:</p>
+            </div>
+            <div id="pTopic" class="col-md-offset-1 col-md-10">
+                <p>{{ topic.topic }}</p>
+                <p>Description: {{ topic.description }}</p>
+        </article>
+
+        <article class="col-md-offset-1 col-md-10">
+            <h4>Post your response here:</h4>
+            <form>
+                <div class="form-group">
+                    <textarea class="form-control" rows="2" ng-model="newMessage.message" placeholder="my response..." required></textarea>
+                </div>
+                <div class="form-group">
+                    <input class="btn btn-primary" type="submit" value="Post" ng-click="createMessage()">
+                </div>
+            </form>
+        </article>
+    </section>
+
+<!-- messages and comments section -->
+    <section id="tMessages" class="col-md-12" style="overflow:scroll;">
+        <div class="tMessages" style="overflow:hidden;" ng-repeat="message in messages | orderBy:'-created_at'">
+            <article class="col-md-offset-1 col-md-10">
+        <!-- message heading -->
+                <div class="mHeader">
+                    <div class="col-md-10">
+                        <a href="" ng-click="getUser(message._user)">{{ message.username }}: </a>{{ message.message }}
+                    </div>
+        <!-- message vote buttons -->
+                    <div class="col-md-offset-9">
+                        <span style="color:#4cae4c;">
+                            {{ message.up_votes }}
+                            <i class="glyphicon glyphicon-arrow-up" role="button" ng-click="upVote(message._id)"></i>
+                        </span>
+
+                        <span role="button" style="color:#d43f3a;">
+                            {{ message.down_votes }}
+                            <i class="glyphicon glyphicon-arrow-down" role="button" ng-click="downVote(message._id)"></i>
+                        </span>
+                    </div>
+                </div>
+        <!-- message comments -->
+                <div class="col-md-10">
+                    <div class="cIndent" ng-repeat="comment in message.comments">
+                        <p><a href="" ng-click="getUser(comment._user)">{{ comment.username }}: </a>{{ comment.comment }}</p>
+                    </div>
+                </div>
+            </article>
+
+        <!-- comment form -->
+            <article class="col-md-offset-1 col-md-10" ng-controller="TopicsController as cc">
+                <form class="cIndent" style="overflow:hidden;">
+                    <div class="form-group">
+                        <div class="col-md-10">
+                            <textarea class="form-control" rows="1" ng-model="newComment.comment" placeholder="add a comment..." required></textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <input class="btn btn-success" type="submit" value="Comment" ng-click="createComment()">
+                    </div>
+                </form>
+            </article>
+        </div>
+    </section>
+</main>

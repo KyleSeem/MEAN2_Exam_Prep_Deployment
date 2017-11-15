@@ -1,0 +1,85 @@
+<!-- dashboard -->
+
+<header class="page-header">
+    <h1 class="col-md-10">Welcome, {{ sessionUser.username }}!</h1>
+    <nav>
+        <a href="#!/dashboard">Dashboard</a> |
+        <a href="" ng-click="logout()">Logout</a>
+    </nav>
+</header>
+
+<!-- settings button enabled during testing only -->
+<!-- <a class="btn btn-danger" href="#!/settings">Settings</a> -->
+
+<!-- search box for topics table -->
+<div class="col-md-3 col-md-offset-9">
+    <input class="form-control" type="text" ng-model="search" placeholder="search...">
+</div>
+
+<section class="col-md-12" style="margin-top:10px;" ng-init="index()">
+<!-- scrollable and sortable topics table -->
+    <scrollable-table>
+        <table class="table table-bordered table-striped table-condensed">
+            <thead>
+                <tr>
+                    <th class="col-md-2">Category</th>
+                    <th class="col-md-5">Topics</th>
+                    <th class="col-md-2">Username</th>
+                    <th class="col-md-1">Messages</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr ng-repeat="topic in topics | filter:search:strict | orderBy:'-created_at'">
+                    <td>{{ topic.category }}</td>
+                    <td><a href="" ng-click="findTopic(topic._id)">{{ topic.topic }}</a></td>
+                    <td><a href="" ng-click="getUser(topic._user)">{{ topic.username }}</a></td>
+                    <td>{{ topic.msg }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </scrollable-table>
+</section>
+
+
+<section>
+    <article class="col-md-8">
+        <h3>Add a new topic</h3>
+        <div class="col-md-12">
+            <div class="alert alert-danger col-md-8 col-md-offset-2" ng-show="alerts.length > 0">
+                <div ng-repeat="alert in alerts">
+                    {{ alert }}
+                </div>
+            </div>
+        </div>
+
+        <form class="form-horizontal">
+            <div class="form-group">
+                <label class="control-label col-md-2">Topic:</label>
+                <div class="col-md-8">
+                    <input class="form-control" type="text" ng-model="newTopic.topic">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-2">Description:</label>
+                <div class="col-md-8">
+                    <textarea class="form-control" rows="3" ng-model="newTopic.description"></textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-2">Category</label>
+                <div class="col-md-2">
+                    <select class="form-control" name="category" ng-model="newTopic.category">
+                        <option value="">select</option>
+                        <option ng-repeat="cat in category" value="{{ cat }}">{{ cat }}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-11">
+                    <input class="btn btn-primary" type="submit" value="Submit" ng-click="createTopic()">
+                </div>
+            </div>
+        </form>
+    </article>
+</section>

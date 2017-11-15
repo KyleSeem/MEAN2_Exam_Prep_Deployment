@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+    <head>
+        <meta charset="UTF-8" name="description" content="Coding Dojo, MEAN II Course, Full MEAN Section, Belt Exam Preparation: Discussion Board">
+        <title>Discussion Board</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <!-- access angular and angular-route -->
+        <script src="angular/angular.js"></script>
+        <script src="angular-route/angular-route.js"></script>
+        <script src="angular-scrollable-table/angular-scrollable-table.js"></script>
+        <script src="angular-cookies/angular-cookies.js"></script>
+        <!-- files located within this project -->
+        <link rel="stylesheet" type="text/css" href="/static/css/scrollable-table.css">
+        <link rel="stylesheet" type="text/css" href="/static/css/style.css">
+        <script src="./assets/config/app.js"></script>
+        <script src="./assets/config/routes.js"></script>
+        <script src="./assets/controllers/UsersController.js"></script>
+        <script src="./assets/controllers/TopicsController.js"></script>
+        <script src="./assets/controllers/DashController.js"></script>
+        <script src="./assets/factories/userFactory.js"></script>
+        <script src="./assets/factories/topicFactory.js"></script>
+        <script src="./assets/factories/messageFactory.js"></script>
+        <script src="./assets/factories/commentFactory.js"></script>
+    </head>
+    <body>
+        <div class="container">
+
+            <div ng-view="">
+                <!-- this is where the partials will show -->
+            </div>
+
+        </div>
+    </body>
+</html>

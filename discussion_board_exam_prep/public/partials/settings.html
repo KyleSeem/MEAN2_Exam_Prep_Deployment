@@ -1,0 +1,92 @@
+<!-- settings page provides tables of all entries in the databse -->
+
+<main ng-controller="DashController">
+    <nav>
+        <a href="#!/login_reg">Login</a>    |
+        <a href="#!/dashboard">Dashboard</a>    |
+        <a href="#!/settings">Settings</a>
+    </nav>
+
+    <section ng-controller='DashController' ng-init="getUsers()">
+        <div>
+            <h4>Users Table</h4>
+            <scrollable-table>
+                <table class="table table-bordered table-striped table-condensed" style="font-size: .9em;">
+                    <thead>
+                        <tr>
+                            <th class="col-md-2">Username</th>
+                            <th class="col">Email</th>
+                            <th class="col">ID</th>
+                            <th class="col-md-1">Actions</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr ng-repeat="user in users">
+                            <td>{{ user.username }}</td>
+                            <td>{{ user.email }}</td>
+                            <td>{{ user._id }}</td>
+                            <td>
+                                <button class="btn btn-link" role="button" ng-click="delete(user._id)">delete</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </scrollable-table>
+        </div>
+    </section>
+
+    <section ng-controller='TopicsController' ng-init="index()">
+        <div>
+            <h4>Topics Table</h4>
+            <scrollable-table>
+                <table class="table table-bordered table-striped table-condensed" style="font-size: .9em;">
+                    <thead>
+                        <tr>
+                            <th class="col-md-2">Username</th>
+                            <th class="col-md-1">Category</th>
+                            <th class="col">Topic</th>
+                            <th class="col">ID</th>
+                            <th class="col-md-1">Msg</th>
+                            <th class="col-md-1">Actions</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr ng-repeat="topic in topics">
+                            <td>{{ topic.username }}</td>
+                            <td>{{ topic.category }}</td>
+                            <td>{{ topic.topic }}</td>
+                            <td>{{ topic._id }}</td>
+                            <td>{{ msg }}</td>
+                            <td>
+                                <button class="btn btn-link" role="button" ng-click="delete(topic._id)">delete</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </scrollable-table>
+        </div>
+    </section>
+
+    <section ng-controller='DashController' ng-init="getMessages()">
+        <ol>
+            <li ng-repeat="message in messages">
+                <ul style="padding:10px; border-bottom: 1px solid #e3e3e3;">
+                    <li>ID: {{ message._id }}</li>
+                    <li>USER: {{ message.username }}, {{ message._user }}</li>
+                    <li>TOPIC: {{ message._topic }}</li>
+                    <li>COMMENTS:
+                        <ul ng-repeat="comment in message.comments">
+                            <li>COMMENT ID: {{ comment._id }}</li>
+                            <li>USERNAME: {{ comment.username }}</li>
+                            <li>USER ID: {{ comment._user }}</li>
+                            <hr>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ol>
+    </section>
+
+</main>
