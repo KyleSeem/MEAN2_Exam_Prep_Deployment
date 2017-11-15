@@ -1,12 +1,12 @@
 {
-  "name": "11_discussion_board",
-  "description": "",
+  "name": "dashboard",
+  "description": "This is the MEAN2 belt exam prep assignment, Dashboard.",
   "main": "server.js",
   "authors": [
     "Kyle Seem <kyle.seem@gmail.com>"
   ],
   "license": "ISC",
-  "homepage": "https://github.com/CodingDojo-MEAN-04-17/KyleSeem",
+  "homepage": "https://github.com/KyleSeem/MEAN2_Exam_Prep_Deployment",
   "ignore": [
     "**/.*",
     "node_modules",
@@ -20,7 +20,7 @@
   "dependencies": {
     "angular": "^1.6.6",
     "angular-route": "^1.6.6",
-    "angular-scrollable-table": "^1.1.2",
-    "angular-cookies": "^1.6.6"
+    "angular-cookies": "^1.6.6",
+    "angular-scrollable-table": "^1.1.2"
   }
 }
